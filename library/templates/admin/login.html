@@ -1,0 +1,11 @@
+{% extends "admin/login.html" %}
+
+{% block content %}
+  {{ block.super }}
+
+  <div class="submit-row" style="margin-top: 8px;">
+    <a href="{% url 'index' %}" class="button default" style="display: block; text-align: center;">
+      Home
+    </a>
+  </div>
+{% endblock %}
