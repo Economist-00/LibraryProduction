@@ -1,11 +1,38 @@
-{% extends "admin/login.html" %}
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'admin/css/login.css' %}">
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
 
 {% block content %}
-  {{ block.super }}
+<div id="content-main">
+  <form action="{{ app_path }}" method="post" id="login-form">
+    {% csrf_token %}
 
-  <div class="submit-row" style="margin-top: 8px;">
-    <a href="{% url 'index' %}" class="button default" style="display: block; text-align: center;">
-      Home
-    </a>
-  </div>
+    <div class="form-row">
+      <label for="{{ form.username.id_for_label }}" class="required">{% translate "Username:" %}</label>
+      {{ form.username }}
+    </div>
+
+    <div class="form-row">
+      <label for="{{ form.password.id_for_label }}" class="required">{% translate "Password:" %}</label>
+      {{ form.password }}
+      <input type="hidden" name="next" value="{{ next }}">
+    </div>
+
+    <div class="submit-row">
+      <input type="submit" value="{% translate 'Log in' %}">
+    </div>
+
+    <div class="submit-row" style="margin-top: 8px;">
+      <a href="{% url 'index' %}" class="button default" style="display: block; text-align: center;">
+        Home
+      </a>
+    </div>
+  </form>
+</div>
 {% endblock %}
