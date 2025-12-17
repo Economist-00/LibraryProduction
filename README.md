@@ -48,8 +48,10 @@ APScheduler        3.11.0
 asgiref            3.8.1
 certifi            2025.6.15
 charset-normalizer 3.4.2
+dj-database-url    3.0.1
 Django             5.2.2
 django-apscheduler 0.7.0
+gunicorn           23.0.0
 idna               3.10
 pip                25.1.1
 psycopg            3.2.9
@@ -59,6 +61,7 @@ sqlparse           0.5.3
 tzdata             2025.2
 tzlocal            5.3.1
 urllib3            2.4.0
+whitenoise         6.11.0
 ```
 
 ## アプリのディレクトリ
